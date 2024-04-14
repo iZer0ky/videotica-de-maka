@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+
+    <h1><%= title %></h1>
+
+    <a href="/registro"> Registrarse </a>
+    <a href="/login"> Ingresar </a>
+
+    <% categories.forEach((category) =>  { %>
+      <h2> <%= category.name %> </h2>
+      <% series.forEach((serie) => { %>
+        <% if (serie.category.name == category.name){ %>
+          <img class="portada" src=<%= serie.imageUrl %> />
+          <p><%= serie.title %> <%= serie.score %>/10</p>
+          <p><%= serie.description %></p>
+        <% } %>
+      <% }); %>
+    <% }); %>
+
+  </body>
+
+</html>
